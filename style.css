@@ -3,8 +3,11 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 19px;
     grid-auto-rows: minmax(10px, auto);
-  
     
+    
+  
+    border-style: solid;
+    outline: solid;
     width: 1000px; height: 400px; margin: 0px auto;
     /*border:solid black;
     border-width:10 5px;

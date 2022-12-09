@@ -74,6 +74,7 @@ function createProduct() {
 
     armfunction()
 Clear()
+grow()
 }
 
 function armfunction(){
@@ -226,6 +227,12 @@ function borrarFuncion(oButton)
     };
 
     function borrarFuncion(oButton)
+    {
+        let empTab = document.getElementById('MYTABLE');
+        empTab.deleteRow(oButton.parentNode.parentNode.rowIndex); // buttton -> td -> tr
+    
+        };
+    function borrarFuncionCL(oButton)
 {
     let empTab = document.getElementById('MYTABLE2');
     empTab.deleteRow(oButton.parentNode.parentNode.rowIndex); // buttton -> td -> tr
@@ -298,7 +305,7 @@ function Clear(){
 
  }
  function ClearCL(){
-    C = new Cliente("", '', "", "")
+    Clientes1 = new Cliente("", '', "", "")
 
 
     document.getElementById('idcl2').value = ""
@@ -360,7 +367,7 @@ let button2CL = document.createElement("button");
 
 button2CL.innerText = "delete";
 button2CL.className = "btn_delete";
-button2CL.setAttribute('onclick', 'borrarFuncion(this)');
+button2CL.setAttribute('onclick', 'borrarFuncionCL(this)');
 
 
 
@@ -453,4 +460,15 @@ return Producto1;
 
 }
 
+let useruser = document.getElementById("USERinpage")
+window.onload(useruser.textContent = sessionStorage.getItem("user"))
 
+function grow()
+{
+    let div = document.getElementById("div1")
+
+    div.style.height = "200px"
+
+    
+
+}

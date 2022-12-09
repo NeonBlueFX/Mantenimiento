@@ -10,3 +10,24 @@
     width: 100px;
     height: 500px;
 }
+.box
+{
+background-color: #353b3b;
+    border:solid;
+    line-height: 30px;
+    width:200px;
+    outline: solid;
+    text-align: center;
+
+}
+.box2
+{
+    background-color: #4a7983;
+    border:solid;
+    line-height: 30px;
+    width:200px;
+    
+    text-align: center;
+
+}
+
