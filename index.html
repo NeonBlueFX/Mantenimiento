@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        table, th, td {
+          border:1px solid black;
+
+    
+        }
+        </style>
+        
+<head>
+
+    
+    <link rel="stylesheet"  href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h1 style="text-align: center;">Mantenimiento</h1>
+
+<div class="wrapper">
+<div class="one">
+<h3>ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cantidad
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</h3>
+</div>
+<body>
+
+    <div class="two">
+    
+    <input type="number" id="id1" value = -1 step = "1" placeholder="0"  readonly>
+    <input type="text" id="id2" placeholder="">
+    <input type="number" id="id3" step = "1" value = "0" min="0" onkeypress="return event.charCode >= 48">
+    
+    </div>
+
+    <div class="three">
+    <button type="button" id="but" onclick="cambio()" style =display:none ></button>
+    <button type="button" id="but3" onclick="createProduct()" >Agregar Datos</button>  
+    
+</div>
+<div class="four">
+  <p>ID=<span id="a"></span></p>
+  <p>Nombre=<span id="b"></span></p>
+  <p>Cantidad=<span id="c"></span></p>
+  <p>Estado=<span id="d"></span></p>
+  <span id="LABEL"></span>
+</div>
+  <div class="five">
+
+ <table id="MYTABLE"> <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Cantidad</th>
+    <th>Estado</th> 
+   <th>Ver</th>
+   <th>Borrar</th>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+  </tr></table>
+  </div>
+  <div style="clear:both"></div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="wrapper">
+  <div class="CL">
+<h1>Clientes</h1>
+</div>
+<div class="CL2">
+    
+  <input type="number" id="idcl1" value = 0 step = "1" placeholder="0" readonly>
+  <input type="text" id="idcl2" placeholder="">
+  <select id="idcl3">
+    <option value="Activo">Activo</option>
+    <option value="Inactivo">Inactivo</option>
+  </select>
+  <input type="date" id="idcl4">
+  </div>
+  <br>
+  <br>
+
+  <div class="CL3">
+  <button type="button" id="clbut" onclick="" style =display:none ></button>
+  <button type="button" id="clbut2" onclick="createCliente()  " >Agregar Clientes</button>  
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+<span id="LABELCL"></span>
+<div class="CL5">
+<table id="MYTABLE2"><tr>
+  <th>ID</th>
+  <th>Nombre</th>
+  <th>Estado</th>
+ <th>Fecha de Creacion</th>
+ <th>Borrar</th>
+</tr>
+<tr>
+</tr>
+<tr>
+</tr></table>
+</div>
+<div style="clear:both"></div>
+</div>
+</div>
+</div>
+    <script src="index.js" async></script>
+    
+</body>
+</html>
