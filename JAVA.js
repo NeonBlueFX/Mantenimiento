@@ -36,7 +36,8 @@ function login()
 
 var user = sessionStorage.getItem("user");
 var password = sessionStorage.getItem("password");
-
+// var user = "Joel"
+// var password = "12345"
 
     var userlOG = document.getElementById("USERLog").value
     var PassLog = document.getElementById("PasswordLog").value

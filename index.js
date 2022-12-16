@@ -173,6 +173,11 @@ change = change + 1;
 
 change = String(change)
 
+if(change < 0)
+{
+change =0
+}
+
 cell3.innerText = change;
 if (cell3.innerHTML == 0||cell3.innerHTML.includes("-"))
 {
@@ -200,6 +205,10 @@ change = Number(change);
 change = change - 1;
 
 change = String(change)
+if(change < 0)
+{
+change =0
+}
 
 cell3.innerText = change;
 
@@ -467,7 +476,7 @@ function grow()
 {
     let div = document.getElementById("div1")
 
-    div.style.height = "200px"
+    div.style.height = div +"200px"
 
     
 
