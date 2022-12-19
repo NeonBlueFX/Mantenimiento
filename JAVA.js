@@ -76,3 +76,9 @@ if(userlOG == user && PassLog == password)
     window.location.href ="index.html"
 }
 }
+function logOff()
+   {
+  
+    window.location.href= "Login.html"
+   }
+

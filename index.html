@@ -13,6 +13,8 @@
   
     
     <link rel="stylesheet"  href="style.css">
+    <link rel="stylesheet"  href="logoff.css">
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,9 +22,16 @@
 </head>
 <div class="plug"></div>
 
-<h3 style="text-align: right; color: white;">Usuario: <span id="USERinpage" style="color: rgb(0, 0, 0);"></span></h3>
+
+<div class="dropdown">
+<h3 onclick="list()" class="dropbtn" style= "text-align: right; color: white;margin-top: -20px;" >Usuario: <span id="USERinpage" style="color: rgb(0, 0, 0); "></span></h3>
+<div id="myDropdown" class="dropdown-content">
+
+<button onclick="logOff()" style=" background-color: rgb(158, 158, 158); border:none;"><h3>LOG OFF</h3></button>
+</div>
+</div>
 <div class="text1">
-<h1 style=" color: white; margin-left: 150px;">Productos</h1>
+<h1 style=" color: white; margin-left: 230px;">Productos</h1>
 <h1 style=" color: white; margin-left: 950px; margin-top: -60px;">Clientes</h1>
 
 </div>
@@ -40,7 +49,7 @@
 
     <div class="two">
     
-    <input type="number" id="id1" class="IDID" value = -1 step = "1" placeholder="0"  readonly>
+    <input type="number" id="id1" class="IDID" value = 0 step = "1" placeholder="0"  readonly>
     <input type="text" id="id2" placeholder="" size="10" maxlength="15">
     <input type="number" id="id3" step = "1" value = "0" min="0" onkeypress="return event.charCode >= 48">
     
@@ -59,11 +68,11 @@
 
  <table id="MYTABLE" style="background-color: white;"> <tr>
     <th>ID</th>
-    <th>Nombre</th>
-    <th>Cantidad</th>
-    <th>Estado</th> 
-   <th>Ver</th>
-   <th>Borrar</th>
+    <th id="NOM">Nombre</th>
+    <th id="CANT">Cantidad</th>
+    <th id="EST">Estado</th> 
+   
+   <th id="DEL">Borrar</th>
   </tr>
   <tr>
   </tr>
@@ -116,9 +125,9 @@
 <div class="CL5">
 <table id="MYTABLE2" style="background-color: white;"><tr>
   <th>ID</th>
-  <th>Nombre</th>
-  <th>Estado</th>
- <th>Fecha de Creacion</th>
+  <th id="NOM2">Nombre</th>
+  <th id="EST2">Estado</th>
+ <th id="FDC">Fecha de Creacion</th>
  <th>Borrar</th>
 </tr>
 <tr>

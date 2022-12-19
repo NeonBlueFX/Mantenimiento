@@ -1,3 +1,4 @@
+
 .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -72,7 +73,7 @@ margin-top: 40px;
     grid-column: 1;
     grid-row: 1  / 5;
     margin-left: 300px;
-    width: 1000px;
+    width: 500px;
 
     /*border-right:solid black;
 
@@ -91,6 +92,8 @@ margin-top: 40px;
   .five {
     grid-column: 1;
     grid-row: 2;
+
+    margin-left: 10px;
   }
   .six {
     grid-column: 3;
@@ -132,8 +135,9 @@ margin-top: 40px;
 .CL5 {
   grid-column: 1;
   grid-row: 3;
-  width: 1000px;
+  width: 500px;
   margin-top: -60px;
+  margin-left: 10px;
 }
 .CL6 {
   grid-column: 3;
@@ -153,19 +157,23 @@ flex-direction: row;
 
 .plug
 {
+  
   outline: solid;
   outline-width: 2px;
   z-index: -1;
   margin-top: -100px;
   margin-left: -30px;
   position: absolute;
-  width: 1370px;
+  width: 1371px;
   height: 130px;
   background-color: rgb(158, 158, 158);
   float: right;
+  box-shadow: 0px,30px,20px,0px rgba(132, 132, 132, 0.8);
+  filter: blur(1px);
 }
 .blox
 {
+  backdrop-filter: blur(30px);
   z-index: -2;
   margin-top: -120px;
   margin-left: -40px;
@@ -175,6 +183,7 @@ flex-direction: row;
   background-color: rgb(65, 64, 64);
   float: right;
   outline: solid;
+  
 }
 input[type='number']{
     width: 80px;
@@ -182,4 +191,53 @@ input[type='number']{
 .text1
 {
   margin-top: 70px;
+}
+table#MYTABLE
+{
+    table-layout: fixed;
+    width: 450px;
+    white-space: nowrap;
+   
+    overflow: hidden;
+  
+}
+#NOM
+{
+    table-layout: fixed;
+    width: 150px;
+}
+#CANT
+{
+    table-layout: fixed;
+    width: 100px;
+}
+#EST
+{
+    table-layout: fixed;
+    width: 70px;
+}
+#DEL
+{
+    table-layout: fixed;
+    width: 50px;
+}
+.CELL2
+{
+  resize: horizontal;
+}
+
+#NOM2
+{
+    table-layout: fixed;
+    width: 150px;
+}
+#EST2
+{
+    table-layout: fixed;
+    width: 70px;
+}
+#FDC
+{
+    table-layout: fixed;
+    width: 140px;
 }

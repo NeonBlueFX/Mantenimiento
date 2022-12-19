@@ -125,16 +125,21 @@ function armfunction(){
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     cell2.setAttribute("contentEditable", true);
+    cell2.setAttribute("onkeypress", "return (this.innerText.length <= 15)")    
+    cell2.setAttribute("onpaste", "return (this.innerText.length <= 15)")    
+
+    cell2.setAttribute("class", "CELL2")
+
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
     var cell5 = row.insertCell(4);
-    var cell6 = row.insertCell(5);
+    
     cell1.innerHTML = Producto1.ID;
     cell2.innerHTML = Producto1.Nombre;
     cell3.innerHTML = Producto1.Cantidad;
     cell4.innerHTML = Producto1.Estado;
-    cell5.append(button);
-    cell6.append(button2);
+  
+    cell5.append(button2);
     cell3.appendChild(buttonup);
     cell3.appendChild(buttondown);
     cell3.className ="button";
@@ -142,7 +147,8 @@ function armfunction(){
 
     row.setAttribute("id", "myId");
     
-  
+
+
     if (cell3.innerHTML.includes("0"))
 {
     cell4.innerHTML = Producto1.Estado
@@ -301,11 +307,6 @@ function borrarFuncion(oButton)
 function Clear(){
     Producto1 = new Producto("", '', "", "")
 
-    document.getElementById('a').textContent = ""
-    document.getElementById('b').textContent = ""
-    document.getElementById('c').textContent = ""
-    document.getElementById('d').textContent = ""
-
     document.getElementById('id2').value = ""
     document.getElementById('id3').value = "0"
 
@@ -386,6 +387,10 @@ var row = table.insertRow(3) ;
 table.appendChild(row)
 var cell1 = row.insertCell(0);
 var cell2 = row.insertCell(1);
+cell2.setAttribute("contentEditable", true);
+cell2.setAttribute("onkeypress", "return (this.innerText.length <= 15)")    
+cell2.setAttribute("onpaste", "return (this.innerText.length <= 15)")   
+
 var cell3 = row.insertCell(2);
 var cell4 = row.insertCell(3);
 var cell5 = row.insertCell(4);
@@ -481,3 +486,20 @@ function grow()
     
 
 }
+
+function list() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
