@@ -31,3 +31,17 @@ background-color: #353b3b;
 
 }
 
+#seven:hover
+{
+    color:green;
+}
+.box1
+{
+background-color: #353b3b;
+    border:solid;
+    line-height: 30px;
+    width:290px;
+    outline: solid;
+    text-align: center;
+    margin-left: -60px;
+}

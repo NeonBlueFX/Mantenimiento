@@ -24,10 +24,11 @@
 
 
 <div class="dropdown">
-<h3 onclick="list()" class="dropbtn" style= "text-align: right; color: white;margin-top: -20px;" >Usuario: <span id="USERinpage" style="color: rgb(0, 0, 0); "></span></h3>
+<h3 onclick="list()" id="LOG" class="dropbtn" style= "  color: white;margin-top: -15px; overflow: hidden;" >Usuario: <span id="USERinpage" style="color: rgb(0, 0, 0); "></span></h3>
 <div id="myDropdown" class="dropdown-content">
 
-<button onclick="logOff()" style=" background-color: rgb(158, 158, 158); border:none;"><h3>LOG OFF</h3></button>
+<button id="logbtn" onclick="logOff()" style=" background-color: rgb(65, 65, 65);
+; border:none;"><h3 id="LOGTEXT">LOG OFF</h3></button>
 </div>
 </div>
 <div class="text1">
@@ -49,30 +50,31 @@
 
     <div class="two">
     
-    <input type="number" id="id1" class="IDID" value = 0 step = "1" placeholder="0"  readonly>
-    <input type="text" id="id2" placeholder="" size="10" maxlength="15">
-    <input type="number" id="id3" step = "1" value = "0" min="0" onkeypress="return event.charCode >= 48">
+    <input type="number" id="IDProductos" class="IDID" value = 1 step = "1" placeholder="0"  readonly>
+    <input type="text" id="NombreProductos" placeholder="" size="10" maxlength="15">
+    <input type="number" id="CantidadProductos" step = "1" value = "0" min="0" onkeypress="return event.charCode >= 48">
     
     </div>
 
     <div class="three">
     <button type="button" id="but" onclick="cambio()" style =display:none ></button>
-    <button type="button" id="but3" onclick="createProduct(), grow()" >Agregar Datos</button>  
+    <button type="button" id="but3" onclick="createProduct()" >Agregar Datos</button>  
     
 </div>
 <div class="four">
  
-  <span id="LABEL"></span>
+  <span id="Warning"></span>
 </div>
   <div class="five">
 
  <table id="MYTABLE" style="background-color: white;"> <tr>
-    <th>ID</th>
+    <th id="ID1">ID</th>
     <th id="NOM">Nombre</th>
     <th id="CANT">Cantidad</th>
     <th id="EST">Estado</th> 
    
    <th id="DEL">Borrar</th>
+   <th id="EDIT">EDIT</th>
   </tr>
   <tr>
   </tr>
@@ -100,13 +102,13 @@
 
 <div class="CL2">
     
-  <input type="number" id="idcl1" value = 0 step = "1" placeholder="0" readonly>
-  <input type="text" id="idcl2" placeholder="">
-  <select id="idcl3">
+  <input type="number" id="IdClientes" value = 1 step = "1" placeholder="0" readonly>
+  <input type="text" id="NombreClientes" placeholder="">
+  <select id="EstadoClientes">
     <option value="Activo">Activo</option>
     <option value="Inactivo">Inactivo</option>
   </select>
-  <input type="date" id="idcl4">
+  
   </div>
   <br>
   <br>
@@ -120,15 +122,15 @@
   <br>
 </div>
 <div class="CL4"
-<span id="LABELCL"></span>
+<span id="WarningCL"></span>
 </div>
 <div class="CL5">
 <table id="MYTABLE2" style="background-color: white;"><tr>
-  <th>ID</th>
+  <th id="CL">ID</th>
   <th id="NOM2">Nombre</th>
   <th id="EST2">Estado</th>
  <th id="FDC">Fecha de Creacion</th>
- <th>Borrar</th>
+ <th id="DELCL">Borrar</th>
 </tr>
 <tr>
 </tr>

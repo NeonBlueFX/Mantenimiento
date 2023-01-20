@@ -78,7 +78,23 @@ if(userlOG == user && PassLog == password)
 }
 function logOff()
    {
-  
-    window.location.href= "Login.html"
+    sessionStorage.removeItem("user")
+    sessionStorage.removeItem("password")
+
+    window.location.reload();
    }
 
+function logIn()
+   {
+    window.location.href="Login.html"
+   }
+
+   function sendMail() {
+    var link = "mailto:joelestrellan@gmail.com"
+             + "?cc=myCCaddress@gmail.com"
+             + "&subject=" + encodeURIComponent("This is my subject")
+             + "&body=" + encodeURIComponent("hello")
+    ;
+    
+    window.location.href = link;
+}

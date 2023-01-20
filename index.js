@@ -1,3 +1,5 @@
+
+
 class Producto {
     ID;
     Nombre;
@@ -8,88 +10,124 @@ class Producto {
         this.ID = ID;
         this.Nombre = Nombre;
         this.Cantidad = Cantidad;
-     
-        this.Estado =Estado ? Estado:"Inactivo";
+
+        this.Estado = Estado ? Estado : "Inactivo";
     }
 }
 
-class Cliente { 
+class Cliente {
     ID;
     Nombre;
     Estado;
     FechaCreacion;
-    
+
 
     constructor(ID, Nombre, Estado, FechaCreacion) {
         this.ID = ID;
         this.Nombre = Nombre;
-        this.Estado =Estado ? Estado:"Inactivo";
+        this.Estado = Estado ? Estado : "Inactivo";
         this.FechaCreacion = FechaCreacion;
     }
 }
+var wrapper =document.getElementById('div1');
+var tableta =document.getElementById("MYTABLE")
 
-var Tabla = [];
+var idproducto =document.getElementById("IDProductos")
+var nombre = document.getElementById("NombreProductos")
+var cantidad = document.getElementById("CantidadProductos")
+var agregar = document.getElementById("but3")
+var idcliente =document.getElementById("IdClientes")
 
-let inp = steponup();
-let IDCL = steponupCL();
+var nombreCliente = document.getElementById("NombreClientes")
+var cantidadCliente = document.getElementById("EstadoClientes")
+var agregarCliente = document.getElementById("clbut2")
+var LogBtn = document.getElementById("logbtn")
+var logTEXT = document.getElementById("LOGTEXT")
+var useruser = document.getElementById("USERinpage")
+var userLOGIN = document.getElementById("LOG")
+window.onload = function () {
+    useruser.textContent = sessionStorage.getItem("user")
 
-let Clientes1 = new Cliente(IDCL.value, document.getElementById('idcl2').value, document.getElementById('idcl3').value, document.getElementById('idcl4').value);
+    if (useruser.textContent == '') {
+        userLOGIN.textContent = "Iniciar Sesion"
+        logTEXT.textContent = "LOG IN"
+        LogBtn.removeAttribute("onclick")
+        LogBtn.setAttribute("onclick", "logIn()")
+        wrapper.setAttribute("onclick", "alert('No esta Registrado')")
+        idproducto.setAttribute("Disabled","true")
+         agregar.setAttribute("Disabled","true")
+         nombre.setAttribute("Disabled","true")
+         cantidad.setAttribute("Disabled","true")
+         idcliente.setAttribute("Disabled","true")
+         agregarCliente.setAttribute("Disabled","true")
+         nombreCliente.setAttribute("Disabled","true")
+         cantidadCliente.setAttribute("Disabled","true")
+        tableta.style.backgroundColor=""
 
-let Producto1 = new Producto(inp.value, document.getElementById('id2').value, document.getElementById('id3').value)
-
-let num = document.getElementById('id1').value
-
-let change = function change() {
-    document.getElementById('LABEL').textContent = "";
-    
+        cantidad.ariaReadOnly="true";
+    }
 }
-let changecl = function change() {
-    document.getElementById('LABELCL').textContent = "";
-    
+
+
+
+
+
+function currentdate() {
+
+    var date = new Date().toLocaleString("es-DO", { month: '2-digit', day: '2-digit', year: 'numeric' });
+
+    return date;
 }
 
-let ID = document.getElementById("f")
+
 
 
 function createProduct() {
-   
+
+    let changePR = function change() {
+        document.getElementById('Warning').textContent = "";
+
+    };
+
 
     if (
-        document.getElementById('id2').value == ""
+        document.getElementById('NombreProductos').value == ""
 
     ) {
-        document.getElementById('LABEL').textContent = "PORFAVOR LLENAR LOS CAMPOS";
+        document.getElementById('Warning').textContent = "PORFAVOR LLENAR LOS CAMPOS";
 
-        setTimeout(change, 3000)
+        setTimeout(changePR, 3000)
 
-        return Producto1;
+
     }
 
     else
 
-    
-        Producto1 = new Producto(inp.value, document.getElementById('id2').value, document.getElementById('id3').value)
 
-    document.getElementById('id1').stepUp()
 
-    armfunction()
-Clear()
-grow()
+        //llamado de funciones
+        armfunction()
+    Clear()
+
+
+
+
 }
 
-function armfunction(){
+function armfunction() {
 
-    let button = document.createElement("button");
+    let buttonEDIT = document.createElement("button");
 
-    button.innerText = "buy";
-    button.className = "btn_buy";
+    buttonEDIT.innerText = "Editar";
+    buttonEDIT.className = "btn_buy";
+    
 
-    let button2 = document.createElement("button");
+    let buttonDELETE = document.createElement("button");
 
-    button2.innerText = "delete";
-    button2.className = "btn_delete";
-    button2.setAttribute('onclick', 'borrarFuncion(this)');
-   
+    buttonDELETE.innerText = "delete";
+    buttonDELETE.className = "btn_delete";
+    buttonDELETE.setAttribute('onclick', 'borrarFuncion(this)');
+
     let buttonup = document.createElement("button");
 
     buttonup.innerText = "↑";
@@ -97,20 +135,24 @@ function armfunction(){
     buttonup.style.width = '2px';
     buttonup.style.alignSelf = "right";
     buttonup.style.visibility = "hidden";
-    
+
     let buttondown = document.createElement("button");
 
     buttondown.innerText = "↓";
     buttondown.className = "btn_down";
     buttondown.style.width = "2px";
-  buttondown.style.textAlign = "right";
-  buttondown.style.visibility = "hidden";
-    
-
-  //botones start
+    buttondown.style.textAlign = "right";
+    buttondown.style.visibility = "hidden";
 
 
- 
+    //botones start
+
+    var IDPRODUCTOS = steponup();
+    var NombreProducto = document.getElementById('NombreProductos').value
+    var CantidadProducto = document.getElementById('CantidadProductos').value
+    var Producto1 = new Producto(IDPRODUCTOS.value, NombreProducto, CantidadProducto)
+
+
 
 
     var select = document.createElement("select");
@@ -120,139 +162,137 @@ function armfunction(){
     var table = document.getElementById("MYTABLE");
 
     var row = table.insertRow(3);
-    
+
     table.appendChild(row)
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
-    cell2.setAttribute("contentEditable", true);
-    cell2.setAttribute("onkeypress", "return (this.innerText.length <= 15)")    
-    cell2.setAttribute("onpaste", "return (this.innerText.length <= 15)")    
-
     cell2.setAttribute("class", "CELL2")
-
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
     var cell5 = row.insertCell(4);
-    
-    cell1.innerHTML = Producto1.ID;
+    var cell6 = row.insertCell(5);
+
+    cell1.innerHTML = Producto1.ID - 1;
     cell2.innerHTML = Producto1.Nombre;
     cell3.innerHTML = Producto1.Cantidad;
     cell4.innerHTML = Producto1.Estado;
-  
-    cell5.append(button2);
+
+    cell5.append(buttonDELETE);
+    cell6.append(buttonEDIT);
+
     cell3.appendChild(buttonup);
     cell3.appendChild(buttondown);
-    cell3.className ="button";
-    
+    cell3.className = "button";
 
+    table.style.overflow = "scroll"
     row.setAttribute("id", "myId");
-    
 
 
-    if (cell3.innerHTML.includes("0"))
-{
-    cell4.innerHTML = Producto1.Estado
-}
-else
-{
-    cell4.innerHTML ="Activo"
-}
-    
-    cell3.addEventListener("mouseover", function(){
-        buttonup.style.visibility ="visible"
-        buttondown.style.visibility ="visible"
-      });
-      cell3.addEventListener("mouseout", function(){
-        buttonup.style.visibility ="hidden"
-        buttondown.style.visibility ="hidden"
-      });
 
-      buttonup.addEventListener("click", function(){
+    if (cell3.innerHTML.includes("0")) {
+        cell4.innerHTML = Producto1.Estado
+    }
+    else {
+        cell4.innerHTML = "Activo"
+    }
+
+    cell3.addEventListener("mouseover", function () {
+        buttonup.style.visibility = "visible"
+        buttondown.style.visibility = "visible"
+    });
+    cell3.addEventListener("mouseout", function () {
+        buttonup.style.visibility = "hidden"
+        buttondown.style.visibility = "hidden"
+    });
+
+    buttonup.addEventListener("click", function () {
         this.parentNode.removeChild(buttondown);
         this.parentNode.removeChild(buttonup);
-let change = cell3.innerText;
+        let change = cell3.innerText;
 
-change = Number(change);
+        change = Number(change);
 
-change = change + 1;
+        change = change + 1;
 
 
-change = String(change)
+        change = String(change)
 
-if(change < 0)
-{
-change =0
-}
+        if (change < 0) {
+            change = 0
+        }
 
-cell3.innerText = change;
-if (cell3.innerHTML == 0||cell3.innerHTML.includes("-"))
-{
-    cell4.innerHTML = Producto1.Estado
-}
-else
-{
-    cell4.innerHTML ="Activo"
-}
+        cell3.innerText = change;
+        if (cell3.innerHTML == 0 || cell3.innerHTML.includes("-")) {
+            cell4.innerHTML = Producto1.Estado
+        }
+        else {
+            cell4.innerHTML = "Activo"
+        }
 
-cell3.appendChild(buttonup);
-    cell3.appendChild(buttondown);
+        cell3.appendChild(buttonup);
+        cell3.appendChild(buttondown);
 
 
 
+
+    });
+    buttondown.addEventListener("click", function () {
+        this.parentNode.removeChild(buttonup);
+        this.parentNode.removeChild(buttondown);
+        let change = cell3.innerText;
+
+        change = Number(change);
+
+        change = change - 1;
+
+        change = String(change)
+        if (change < 0) {
+            change = 0
+        }
+    
         
-      });
-      buttondown.addEventListener("click", function(){
-        this.parentNode.removeChild(buttonup);
-        this.parentNode.removeChild(buttondown);
-let change = cell3.innerText;
+    
+       
+    
 
-change = Number(change);
+        cell3.innerText = change;
 
-change = change - 1;
+        if (cell3.innerHTML == 0 || cell3.innerHTML.includes("-")) {
+            cell4.innerHTML = Producto1.Estado
+        }
+        else {
+            cell4.innerHTML = "Activo"
+        }
 
-change = String(change)
-if(change < 0)
+        cell3.appendChild(buttonup);
+        cell3.appendChild(buttondown);
+
+    });
+    buttonEDIT.addEventListener("click", function () 
+    {
+        cell2.setAttribute("contentEditable", true);
+        cell2.setAttribute("onkeypress", "return (this.innerText.length <= 15)")
+        cell2.setAttribute("onpaste", "return (this.innerText.length <= 15)")
+        cell2.focus();
+        })
+cell2.addEventListener("mouseout", function()
 {
-change =0
+    cell2.setAttribute("contentEditable", false);
+
+})
+
 }
 
-cell3.innerText = change;
-
-if (cell3.innerHTML ==0||cell3.innerHTML.includes("-") )
-{
-    cell4.innerHTML = Producto1.Estado
-}
-else
-{
-    cell4.innerHTML ="Activo"
-}
-
-cell3.appendChild(buttonup);
-    cell3.appendChild(buttondown);
-
-});
-
-
-}    
-function borrarFuncion(oButton)
-{
+function borrarFuncion(oButton) {
     let empTab = document.getElementById('MYTABLE');
     empTab.deleteRow(oButton.parentNode.parentNode.rowIndex); // buttton -> td -> tr
 
-    };
-
-    function borrarFuncion(oButton)
-    {
-        let empTab = document.getElementById('MYTABLE');
-        empTab.deleteRow(oButton.parentNode.parentNode.rowIndex); // buttton -> td -> tr
-    
-        };
-    function borrarFuncionCL(oButton)
-{
+};
+function borrarFuncionCL(oButton) {
     let empTab = document.getElementById('MYTABLE2');
     empTab.deleteRow(oButton.parentNode.parentNode.rowIndex); // buttton -> td -> tr
 
-    };
+};
 
 //     var z = document.createElement("option");
 //     z.setAttribute("value", "Disponible");
@@ -290,7 +330,7 @@ function borrarFuncion(oButton)
 
 
 //         
-         
+
 //     });
 
 
@@ -304,202 +344,147 @@ function borrarFuncion(oButton)
 //             cell4.innerHTML = "Disponible"
 //     }
 
-function Clear(){
+function Clear() {
     Producto1 = new Producto("", '', "", "")
 
-    document.getElementById('id2').value = ""
-    document.getElementById('id3').value = "0"
+    document.getElementById('NombreProductos').value = ""
+    document.getElementById('CantidadProductos').value = "0"
 
     return Producto1;
 
 
- }
- function ClearCL(){
+}
+function ClearCL() {
     Clientes1 = new Cliente("", '', "", "")
 
 
-    document.getElementById('idcl2').value = ""
-    document.getElementById('idcl4').value = ""
-
-    return Producto1;
+    document.getElementById('NombreClientes').value = ""
 
 
- }
+
+}
 
 
-function steponup(){
-    let input = document.getElementById("id1")
+function steponup() {
+    let input = document.getElementById("IDProductos")
     input.stepUp()
 
     return input
 }
-function steponupCL(){
-    let IDCL = document.getElementById("idcl1")
-    IDCL.stepUp()
+function steponupCL() {
+    let IDcliente = document.getElementById("IdClientes")
+    IDcliente.stepUp()
 
-    return IDCL;
+    return IDcliente;
 }
 
 
 //Clientes
 
 
-function createCliente(){
-if( 
-    document.getElementById('idcl2').value == "" 
-    ||document.getElementById('idcl4').value ==""
-   
-  ) {
-        document.getElementById('LABELCL').textContent="PORFAVOR LLENAR LOS CAMPOS";
+function createCliente() {
+
+    let changecl = function change() {
+        document.getElementById('WarningCL').textContent = "";
+
+
+    };
+
+    if (
+        document.getElementById('NombreClientes').value == ""
+
+
+    ) {
+        document.getElementById('WarningCL').textContent = "PORFAVOR LLENAR LOS CAMPOS";
 
 
         setTimeout(changecl, 3000)
-        
-       
-return;
-}
-
-else
 
 
-    Clientes1 = new Cliente(IDCL.value, document.getElementById('idcl2').value, document.getElementById('idcl3').value, document.getElementById('idcl4').value)
-
-document.getElementById('idcl1').stepUp()
-
-
-
-let buttonCL = document.createElement("button");
-
-buttonCL.innerText = "buy";
-buttonCL.className = "btn_buy";
-
-let button2CL = document.createElement("button");
-
-button2CL.innerText = "delete";
-button2CL.className = "btn_delete";
-button2CL.setAttribute('onclick', 'borrarFuncionCL(this)');
-
-
-
-var table = document.getElementById("MYTABLE2");
-
-var row = table.insertRow(3) ;
-table.appendChild(row)
-var cell1 = row.insertCell(0);
-var cell2 = row.insertCell(1);
-cell2.setAttribute("contentEditable", true);
-cell2.setAttribute("onkeypress", "return (this.innerText.length <= 15)")    
-cell2.setAttribute("onpaste", "return (this.innerText.length <= 15)")   
-
-var cell3 = row.insertCell(2);
-var cell4 = row.insertCell(3);
-var cell5 = row.insertCell(4);
-cell1.innerHTML = Clientes1.ID;
-cell2.innerHTML = Clientes1.Nombre;
-cell3.innerHTML = Clientes1.Estado;
-cell4.innerHTML = Clientes1.FechaCreacion;
-
-cell5.append(button2CL);
-
-ClearCL();
-cell4.addEventListener ("click",function(){
-
-
-cell4.append(select)
-});
-
-select.addEventListener ("change",function(){
-cell4.innerHTML = select.value});
-
-
-
-cell2.addEventListener("click",function(){
-let v = prompt()
-
-    
-    if (v === null) {
         return;
     }
-    this.innerHTML = v
-});
-button.addEventListener("click",function(){
-    document.getElementById('a').textContent = cell1.innerHTML 
-    document.getElementById('b').textContent = cell2.innerHTML
-    document.getElementById('c').textContent= cell3.innerHTML
-    document.getElementById('d').textContent= cell4.innerHTML
-});
-button2CL.addEventListener("click",function(){
 
-   
-     row.remove(this)
-    ();
-});
+    else
+
+        var IDcliente = steponupCL();
+    let date = currentdate();
+    var nomCL = document.getElementById('NombreClientes')
+    var estCL = document.getElementById('EstadoClientes')
+    let Clientes1 = new Cliente(IDcliente.value - 1, nomCL.value, estCL.value, date)
 
 
+    let button2CL = document.createElement("button");
 
-if (cell3.innerHTML == 0)
-{
+    button2CL.innerText = "delete";
+    button2CL.className = "btn_delete";
+    button2CL.setAttribute('onclick', 'borrarFuncionCL(this)');
 
-cell4.innerHTML = "Agotado"
+
+
+    var table = document.getElementById("MYTABLE2");
+
+    var row = table.insertRow(3);
+    table.appendChild(row)
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell2.setAttribute("contentEditable", true);
+    cell2.setAttribute("onkeypress", "return (this.innerText.length <= 15)")
+    cell2.setAttribute("onpaste", "return (this.innerText.length <= 15)")
+
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+    cell1.innerHTML = Clientes1.ID;
+    cell2.innerHTML = Clientes1.Nombre;
+    cell3.innerHTML = Clientes1.Estado;
+    cell4.innerHTML = Clientes1.FechaCreacion;
+
+    cell5.append(button2CL);
+
+    ClearCL();
+
+    console.log(cell3.innerHTML)
+
+
+
+    cell3.onclick = function () {
+
+        var swap = cell3.innerHTML;
+        if (swap == "Activo") {
+            cell3.innerHTML = "Inactivo";
+        } else {
+            cell3.innerHTML = "Activo";
+        }
+
+    };
+
+
+
+
+
+
+    button2CL.addEventListener("click", function () {
+
+
+        row.remove(this)
+            ();
+    });
+
 }
-else
-{
-if(cell3.innerHTML > 1 )
-cell4.innerHTML ="Disponible"
-
-else{
-if (cell3.innerHTML < 1 )
-
-alert("ERROR EN CANTIDAD")
-;
-}
-throw new Error("Yes")
-}
-
-
-Producto1 = new Producto("",'',"","")
-
-document.getElementById('a').textContent = "" 
-document.getElementById('b').textContent = "" 
-document.getElementById('c').textContent= "" 
-document.getElementById('d').textContent= ""
-
-    document.getElementById('id2').value = "" 
-    document.getElementById('id3').value="0" 
-    
-
-   
-return Producto1;
-
-
-}
-
-let useruser = document.getElementById("USERinpage")
-window.onload(useruser.textContent = sessionStorage.getItem("user"))
-
-function grow()
-{
-    let div = document.getElementById("div1")
-
-    div.style.height = div +"200px"
-
-    
-
-}
-
 function list() {
     document.getElementById("myDropdown").classList.toggle("show");
-  }
+}
 
-  window.onclick = function(event) {
+window.onclick = function (event) {
     if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
         }
-      }
     }
-  }
+}
+
