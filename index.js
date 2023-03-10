@@ -149,7 +149,7 @@ function armfunction() {
 
     var IDPRODUCTOS = steponup();
     var NombreProducto = document.getElementById('NombreProductos').value
-    var CantidadProducto = document.getElementById('CantidadProductos').value
+    var CantidadProducto  = document.getElementById('CantidadProductos').value 
     var Producto1 = new Producto(IDPRODUCTOS.value, NombreProducto, CantidadProducto)
 
 
