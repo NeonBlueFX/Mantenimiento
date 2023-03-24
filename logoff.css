@@ -5,7 +5,7 @@ width: 200px;
 height: 38px;
 margin-left: 40px;
 margin-bottom: 40px;
-background-color: rgb(65, 65, 65);
+
 top: -7px;
 line-height: 2em;
 
@@ -23,9 +23,9 @@ right: 5px;
   
 
   
-  .dropbtn:hover, .dropbtn:focus {
+  /* .dropbtn:hover, .dropbtn:focus {
     background-color: #797979;
-  }
+  } */
   
   .dropdown {
     position: relative;
@@ -37,13 +37,14 @@ right: 5px;
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: rgb(65, 65, 65);
+    background-color: black;
     min-width: 151px;
     overflow: auto;
-    margin-top: 15px;
-    margin-left: 40px;
+    margin-top: 27px;
+    margin-left: 45px;
     backdrop-filter: blur(30px);
     z-index: 1;
+   
     
 
   }

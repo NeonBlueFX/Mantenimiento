@@ -1,12 +1,36 @@
 
+.body
+{
+  opacity: 0;
+
+  animation: hranimopacitiy 6s 6s forwards, movement 2s 6s forwards;
+}
+#firstText
+{
+  opacity: 0;
+  letter-spacing: 10px;
+  font-weight: bold;
+  font-size: 100px;
+  position: absolute;
+  color: white;
+  margin-top: 200px;
+  margin-left: 400px;
+  animation: hranimopacitiy 2s 1s forwards, hranimopacitiy 2s 4s forwards reverse, size 20s 1s ,specialfade 2s 4s forwards reverse;
+}
+.wrapper2
+{
+  opacity: 0;
+  animation: hranimopacitiy 6s 6s forwards;
+}
 .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 19px;
     grid-auto-rows: minmax(10px, auto);
-    outline: solid;
     
-  background-color: rgb(150, 148, 148);
+    
+    
+  /* background-color: rgb(150, 148, 148); */
    
     width: 570px; height: 300px; margin: 0px auto;
 margin-top: 40px;
@@ -34,7 +58,7 @@ margin-top: 40px;
    
     width: 500px; height: 300px; margin: 0px auto;
 
-    margin-top: -520px;
+    margin-top: -320px;
 
     margin-left: 750px;
     
@@ -66,13 +90,15 @@ margin-top: 40px;
   .two {
     grid-column: 1 / 4;
     grid-row: 1 / 2;
+    margin-left: 100px;
     
     
   }
   .three {
+    margin-top: 100px;
     grid-column: 1;
     grid-row: 1  / 5;
-    margin-left: 470px;
+    margin-left: 330px;
     width: 500px;
 
     /*border-right:solid black;
@@ -84,6 +110,7 @@ margin-top: 40px;
     
   }
   .four {
+    display: none;
     grid-column: 1;
     grid-row: 2;
     margin-top: -50px ;
@@ -91,11 +118,12 @@ margin-top: 40px;
     
   }
   .five {
+    margin-top: 150px;
     grid-column: 1;
     grid-row: 2;
     width: 565px;
     height: 200px;
-    margin-left: 5px;
+    margin-left: 45px;
   overflow: scroll;
   overflow-x: hidden;
   }
@@ -190,7 +218,7 @@ flex-direction: row;
   position: absolute;
   width: 1371px;
   height: 130px;
-  background-color: rgb(158, 158, 158);
+  /* background-color: rgb(158, 158, 158); */
   float: right;
   box-shadow: 0px,30px,20px,0px rgba(132, 132, 132, 0.8);
  
@@ -198,13 +226,14 @@ flex-direction: row;
 .blox
 {
 
+  border-radius: 10px;
   z-index: -2;
-  margin-top: -120px;
+  margin-top: -20px;
   margin-left: -40px;
   position: absolute;
   width: 1300px;
   height: 500px;
-  background-color: rgb(65, 64, 64);
+  /* background-color: rgb(65, 64, 64); */
   float: right;
   outline: solid;
   
@@ -307,4 +336,117 @@ table#MYTABLE{
 {
     table-layout: fixed;
     width: 20px;
+}
+#savebuttonProd
+{
+  font-size: 20px;
+  color: white;
+  background-color: transparent;
+  position: absolute;
+  margin-left: -350px;
+  margin-top: 80px;
+}
+#savebuttonProd:hover
+{
+  color: blue;
+  cursor: pointer;
+}
+#loadbuttonProd
+{
+  font-size: 20px;
+  color: white;
+  background-color: transparent;
+  position: absolute;
+  margin-left: -230px;
+  margin-top: 80px;
+}
+#loadbuttonProd:hover
+{
+  color: orange;
+  cursor: pointer;
+}
+
+#savebuttonCliente
+{
+  
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+#loadbuttonCliente
+{
+  position: absolute;
+  margin-left: 110px;
+  margin-top: 30px;
+}
+#hr1
+{
+  opacity: 0;
+  width: 0%;
+  margin-top: 20px;
+  animation: hranim 2s 1s  forwards, hranimopacitiy 2s 1s  forwards;
+}
+#LOG:hover
+{
+  animation: glow 1s infinite alternate;
+}
+
+#but3:hover
+{
+color: green;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+
+@keyframes hranim
+{
+  from{
+    width: 0%;
+  }
+  to{
+    width: 100%;
+  }
+}
+@keyframes hranimopacitiy
+{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+@keyframes movement
+{
+  from{
+    margin-top: 50%;
+  }
+  to{
+    margin-top: 0%;
+  }
+}
+@keyframes size{
+  from{
+    font-size:100px;
+  }
+  to{
+font-size: 125px;
+  }
+}
+@keyframes specialfade{
+  from{
+    display: block;
+  }
+    to{
+      display:none;
+    }
+  
 }

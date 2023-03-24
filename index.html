@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 
 <html lang="en" style="background-color: black;">
-    <style>
-        table, th, td {
-          border:1px solid black;
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid black;
 
-    
-        }
-        </style>
-        
+
+  }
+</style>
+
 <head>
-  
-    
-    <link rel="stylesheet"  href="style.css">
-    <link rel="stylesheet"  href="logoff.css">
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="logoff.css">
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+<span id="firstText">Bienvenido</span>
 <div class="plug"></div>
 <img src="logo.png" style="width: 100px; position:absolute; top: -5px
 
@@ -39,128 +42,135 @@
 ;">
 
 <div class="dropdown">
-<h3 onclick="list()" id="LOG" class="dropbtn" style= "  color: white;margin-top: -15px; overflow: hidden;" >Usuario: <span id="USERinpage" style="color: rgb(0, 0, 0); "></span></h3>
-<div id="myDropdown" class="dropdown-content">
+  <h3 onclick="list()" id="LOG" class="dropbtn" style=" cursor: pointer;  color: white;margin-top: -15px; overflow: hidden;">Usuario:
+    <span id="USERinpage" style="color: white; "></span></h3>
+  <div id="myDropdown" class="dropdown-content">
 
-<button id="logbtn" onclick="logOff()" style=" background-color: rgb(65, 65, 65);
-; border:none;"><h3 id="LOGTEXT">LOG OFF</h3></button>
+    <button id="logbtn" onclick="logOff()" style=" background-color:transparent;
+; border:none;">
+      <h3 id="LOGTEXT" style="color: white;">LOG OFF</h3>
+    </button>
+  </div>
 </div>
-</div>
+<hr id="hr1">
+<div class="body" id="bodyid">
+
 <div class="text1">
-<h1 style=" color: white; margin-left: 230px;">Productos</h1>  
-<h1 style=" color: white; margin-left: 950px; margin-top: -60px;">Clientes</h1> BHGYT6 RB6
+  <h1 style=" color: white; margin-left: 300px;">Productos</h1>
+  <h1 style=" color: white; margin-left: 950px; margin-top: -60px;">Clientes</h1>
 
 </div>
 
 <div class="wrapper" id="div1">
- 
-<div class="one">
-<h3>ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cantidad
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</h3>
-</div>
-<body>  <div class="blox"></div>
+  <div class="one">
+    <h3 style="color: white; padding-left: 105px ;">ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cantidad
+      &nbsp;&nbsp;&nbsp;&nbsp;Imagen
+      <button id="savebuttonProd" onclick="saveTable()">Guardar</button>
+      <button id="loadbuttonProd" onclick="loadTable()">Cargar</button>
+
+
+    </h3>
+  </div>
+
+  <body>
+    <div class="blox"></div>
 
     <div class="two">
-    
-    <input type="number" id="IDProductos" class="IDID" value = 1 step = "1" placeholder="0"  readonly>
-    <input type="text" id="NombreProductos" placeholder="" size="10" maxlength="15">
-    <input type="number" id="CantidadProductos" step = "1" value = "0" min="0" onkeypress="return event.charCode >= 48">
-    <input type="file" id="ImagenProductos" accept="image/*">
-    
+
+      <input type="number" id="IDProductos" class="IDID" value=1 step="1" placeholder="0" readonly>
+      <input type="text" id="NombreProductos" placeholder="" size="10" maxlength="15">
+      <input type="number" id="CantidadProductos" step="1" value="0" min="0" onkeypress="return event.charCode >= 48">
+      <input type="file" style="color:white; font-weight: bold;" id="ImagenProductos" accept="image/*">
+
     </div>
 
     <div class="three">
-    <button type="button" id="but" onclick="cambio()" style =display:none ></button>
-    <button type="button" id="but3" onclick="createProduct(), console.log(Producto1.ID)" >Agregar Datos</button>  
-    
-</div>
-<div class="four">
- 
-  <span id="Warning"></span>
-</div>
-  <div class="five">
+      <button type="button" id="but" onclick="cambio()" style=display:none></button>
+      <button type="button" id="but3" style="background-color: transparent; color: white; margin-left: 10px; font-size: 20px; cursor: pointer;" onmouseover="this.style.color='green'"onmouseout="this.style.color='white'" onclick="createProduct(), console.log(Producto1.ID)">Agregar Datos</button>
 
- <table id="MYTABLE" style="background-color: white;"> <tr>
-    <th id="ID1">ID</th>
-    <th id="NOM">Nombre</th>
-    <th id="CANT">Cantidad</th>
-    <th id="EST">Estado</th> 
-   
-   <th id="DEL">Borrar</th>
-   <th id="EDIT">EDIT</th>
-   <th id="Photo">Photo</th>
+    </div>
+    <div class="four">
 
-   
-  </tr>
-  <tr>
-  </tr>
-  <tr>
-  </tr></table>
-  </div>
-  <div style="clear:both"></div>
+      <span id="Warning"></span>
+    </div>
+    <div class="five">
+
+      <table id="MYTABLE" style="background-color: white;">
+        <tr>
+          <th id="ID1">ID</th>
+          <th id="NOM">Nombre</th>
+          <th id="CANT">Cantidad</th>
+          <th id="EST">Estado</th>
+
+          <th id="DEL">Borrar</th>
+          <th id="EDIT">EDIT</th>
+          <th id="Photo">Photo</th>
+
+
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+      </table>
+    </div>
+    <div style="clear:both"></div>
 </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 <div class="CL">
-  <h1 style="text-align: center; color: white;"></h1>
-  </div>
-<div class="wrapper2">
-
-<div class="CL2">
-    
-  <input type="number" id="IdClientes" value = 1 step = "1" placeholder="0" readonly>
-  <input type="text" id="NombreClientes" placeholder="">
-  <select id="EstadoClientes">
-    <option value="Activo">Activo</option>
-    <option value="Inactivo">Inactivo</option>
-  </select>
   
+  <h1 style="text-align: center; color: white;"></h1>
+</div>
+<div class="wrapper2" id="wrapper2">
+  <button id="savebuttonCliente" onclick="saveTableCliente()">Guardar</button>
+  <button id="loadbuttonCliente" onclick="loadTableCliente()">Cargar</button>
+
+  <div class="CL2">
+
+    <input type="number" id="IdClientes" value=1 step="1" placeholder="0" readonly>
+    <input type="text" id="NombreClientes" placeholder="">
+    <select id="EstadoClientes">
+      <option value="Activo">Activo</option>
+      <option value="Inactivo">Inactivo</option>
+    </select>
+
   </div>
   <br>
   <br>
 
   <div class="CL3">
-  <button type="button" id="clbut" onclick="" style =display:none ></button>
-  <button type="button" id="clbut2" onclick="createCliente()  " >Agregar Clientes</button>  
-  <br>
-  <br>
-  <br>
-  <br>
-</div>
-<div class="CL4"
-<span id="WarningCL"></span>
-</div>
-<div class="CL5">
-<table id="MYTABLE2" style="background-color: white;"><tr>
-  <th id="CL">ID</th>
-  <th id="NOM2">Nombre</th>
-  <th id="EST2">Estado</th>
- <th id="FDC">Fecha de Creacion</th>
- <th id="DELCL">Borrar</th>
-</tr>
-<tr>
-</tr>
-<tr>
-</tr></table>
-</div>
-<div style="clear:both"></div>
+    <button type="button" id="clbut" onclick="" style=display:none></button>
+    <button type="button" id="clbut2" onclick="createCliente()  ">Agregar Clientes</button>
+
+  </div>
+  <div class="CL4" <span id="WarningCL"></span>
+  </div>
+  <div class="CL5">
+    <table id="MYTABLE2" style="background-color: white;">
+      <tr>
+        <th id="CL">ID</th>
+        <th id="NOM2">Nombre</th>
+        <th id="EST2">Estado</th>
+        <th id="FDC">Fecha de Creacion</th>
+        <th id="DELCL">Borrar</th>
+      </tr>
+      <tr>
+      </tr>
+      <tr>
+      </tr>
+    </table>
+  </div>
+  <div style="clear:both"></div>
 </div>
 </div>
 </div>
-    <script src="ts/index.js" async></script>
-    <script src="JAVA.js" async></script>
-    
+</div>
+
+<script src="ts/index.js" async></script>
+<script src="JAVA.js" async></script>
+
 </body>
+
 </html>

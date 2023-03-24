@@ -18,21 +18,35 @@ var Cliente = /** @class */ (function () {
 }());
 var wrapper = document.getElementById('div1');
 var tableta = document.getElementById("MYTABLE");
+var tabletaCliente = document.getElementById("MYTABLE2");
 var idproducto = document.getElementById("IDProductos");
 var nombre = document.getElementById("NombreProductos");
 var cantidad = document.getElementById("CantidadProductos");
 var agregar = document.getElementById("but3");
 var idcliente = document.getElementById("IdClientes");
+var imgprod = document.getElementById("ImagenProductos");
 var nombreCliente = document.getElementById("NombreClientes");
 var estadoCliente = document.getElementById("EstadoClientes");
 var agregarCliente = document.getElementById("clbut2");
 var LogBtn = document.getElementById("logbtn");
 var logTEXT = document.getElementById("LOGTEXT");
-var useruser = document.getElementById("USERinpage");
+var useruser = document.getElementById("LOG");
 var userLOGIN = document.getElementById("LOG");
+var userBody = document.getElementById("bodyid");
+var wrapper = document.getElementById("wrapper2");
+var text = document.getElementById("firstText");
 window.onload = function () {
     useruser.textContent = sessionStorage.getItem("user");
+    useruser.style.letterSpacing = "4px";
     if (useruser.textContent == '') {
+        userBody.style.opacity = "0";
+        userBody.style.animation = "none";
+        wrapper.style.opacity = "0";
+        wrapper.style.animation = "none";
+        text.textContent = "Porfavor Iniciar Sesion";
+        text.style.animation = "hranimopacitiy 2s 1s forwards";
+        text.style.marginLeft = "75px";
+        text.style.textAlign = "center";
         userLOGIN.textContent = "Iniciar Sesion";
         logTEXT.textContent = "LOG IN";
         LogBtn.removeAttribute("onclick");
@@ -81,14 +95,14 @@ function armfunction() {
     buttonup.style.width = '2px';
     buttonup.style.alignSelf = "right";
     buttonup.style.visibility = "hidden";
-    buttonup.style.height = "50px";
+    buttonup.style.height = "52px";
     var buttondown = document.createElement("button");
     buttondown.innerText = "↓";
     buttondown.className = "btn_down";
     buttondown.style.width = "2px";
     buttondown.style.textAlign = "right";
     buttondown.style.visibility = "hidden";
-    buttondown.style.height = "50px";
+    buttondown.style.height = "52px";
     var ImagenProducto = document.getElementById("ImagenProductos");
     var file = (ImagenProducto.files[0]);
     var reader = new FileReader();
@@ -244,6 +258,7 @@ function Clear() {
     var Producto1 = new Producto(0, '', 0, "");
     nombre.value = null;
     cantidad.value = "0";
+    imgprod.value = null;
     return Producto1;
 }
 function ClearCL() {
@@ -327,3 +342,23 @@ window.onclick = function (event) {
         }
     }
 };
+function saveTable() {
+    localStorage.setItem("tableProd", tableta.innerHTML);
+}
+function loadTable() {
+    tableta.innerHTML = localStorage.getItem("tableProd");
+    var newidprod = tableta.rows[tableta.rows.length - 1].cells[0].innerHTML;
+    newidprod = Number(newidprod);
+    newidprod = (newidprod + 1);
+    idproducto.value = String(newidprod);
+}
+function saveTableCliente() {
+    localStorage.setItem("tableCliente", tabletaCliente.innerHTML);
+}
+function loadTableCliente() {
+    tabletaCliente.innerHTML = localStorage.getItem("tableCliente");
+    var newidcliente = tabletaCliente.rows[tabletaCliente.rows.length - 1].cells[0].innerHTML;
+    newidcliente = Number(newidcliente);
+    newidcliente = (newidcliente + 1);
+    idcliente.value = String(newidcliente);
+}
